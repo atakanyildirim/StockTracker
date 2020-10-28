@@ -1,0 +1,50 @@
+﻿@model stoktakipyazilimbakimi.Models.LoginModel
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @Styles.Render("~/Content/css")
+    <title>Giriş Yap</title>
+</head>
+
+<body>
+    <div class="d-flex justify-content-center align-items-center login-container">
+        @using (Html.BeginForm("Attempt", "Login", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true)
+            <h1 class="mb-5 font-weight-light text-uppercase">Stok Yönetim Paneli</h1>
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.tcno, new { @class = "form-control rounded-pill form-control-lg", @placeholder = "Tc No" })
+                @Html.ValidationMessageFor(model => model.tcno)
+            </div>
+            <div class="form-group">
+                @Html.PasswordFor(model => model.sifre, new { @class = "form-control rounded-pill form-control-lg", @placeholder = "Şifre" })
+                @Html.ValidationMessageFor(model => model.sifre)
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn rounded-pill btn-lg btn-custom btn-block text-uppercase">Giriş Yap</button>
+            </div>
+            if (TempData["message"] != null)
+            {
+                <div class="form-group">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Bir sorun var!</strong> @TempData["message"]
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            }
+        }
+
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+</body>
+
+</html>
