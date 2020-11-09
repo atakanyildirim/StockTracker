@@ -15,7 +15,7 @@ namespace stoktakipyazilimbakimi.Controllers
         }
 
         [HttpPost]
-        public RedirectToRouteResult Attempt(LoginModel model)
+        public RedirectToRouteResult Attempt(Personel model)
         {
             if (ModelState.IsValid)
             {

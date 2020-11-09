@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Ürünler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mt-3">
+        <li class="breadcrumb-item"><a href="/" class="text-dark">Anasayfa</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Ürünler</li>
+    </ol>
+</nav>
+
+<p class="display-4">
+    Ürünler <a href="@Url.Action("Add","Products")" class="btn btn-success badge">+</a>
+</p>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Ürün ID</th>
+            <th scope="col">Ürün Ad</th>
+            <th scope="col">Fiyat</th>
+            <th scope="col">Stok Adet</th>
+            <th scope="col">İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">12</th>
+            <td>Test ürün adı 1</td>
+            <td>15TL</td>
+            <td>147</td>
+            <td><a class="btn btn-warning">Edit</a> <a class="btn btn-danger">Sil</a></td>
+        </tr>
+        <tr>
+            <th scope="row">13</th>
+            <td>Test ürün adı 2</td>
+            <td>55TL</td>
+            <td>137</td>
+            <td><a class="btn btn-warning">Edit</a> <a class="btn btn-danger">Sil</a></td>
+        </tr>
+        <tr>
+            <th scope="row">14</th>
+            <td>Test ürün adı 3</td>
+            <td>47TL</td>
+            <td>1557</td>
+            <td><a class="btn btn-warning">Edit</a> <a class="btn btn-danger">Sil</a></td>
+        </tr>
+    </tbody>
+</table>
+
+
