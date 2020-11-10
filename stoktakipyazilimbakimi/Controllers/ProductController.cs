@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace stoktakipyazilimbakimi.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductController : Controller
     {
         public ActionResult Index()
         {
