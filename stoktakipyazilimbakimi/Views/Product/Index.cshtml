@@ -1,4 +1,6 @@
-﻿
+﻿@model PagedList.IPagedList<stoktakipyazilimbakimi.Models.Urunler>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Ürünler";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,6 +13,18 @@
     </ol>
 </nav>
 
+@if (TempData["message"] != null)
+{
+    <div class="form-group">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Tebrikler!</strong> @TempData["message"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+}
+
 <p class="display-4">
     Ürünler <a href="@Url.Action("Add","Product")" class="btn btn-success badge">+</a>
 </p>
@@ -21,33 +35,22 @@
             <th scope="col">Ürün ID</th>
             <th scope="col">Ürün Ad</th>
             <th scope="col">Fiyat</th>
-            <th scope="col">Stok Adet</th>
+            <th scope="col">Stok Miktar</th>
             <th scope="col">İşlem</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">12</th>
-            <td>Test ürün adı 1</td>
-            <td>15TL</td>
-            <td>147</td>
-            <td><a class="btn btn-warning">Edit</a> <a class="btn btn-danger">Sil</a></td>
-        </tr>
-        <tr>
-            <th scope="row">13</th>
-            <td>Test ürün adı 2</td>
-            <td>55TL</td>
-            <td>137</td>
-            <td><a class="btn btn-warning">Edit</a> <a class="btn btn-danger">Sil</a></td>
-        </tr>
-        <tr>
-            <th scope="row">14</th>
-            <td>Test ürün adı 3</td>
-            <td>47TL</td>
-            <td>1557</td>
-            <td><a class="btn btn-warning">Edit</a> <a class="btn btn-danger">Sil</a></td>
-        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@Html.DisplayFor(modelItem => item.UrunID)</th>
+                <td>@Html.DisplayFor(modelItem => item.UrunAdi)</td>
+                <td>@Html.DisplayFor(modelItem => item.UrunFiyat)</td>
+                <td>45</td>
+                <td>@Html.ActionLink("Edit", "Edit", "Product", new { id = item.UrunID }, new { @class = "btn btn-warning" }) @Html.ActionLink("Delete", "Delete", "Product", new { id = item.UrunID }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
     </tbody>
 </table>
 
-
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
