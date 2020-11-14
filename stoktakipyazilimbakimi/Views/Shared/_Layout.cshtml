@@ -9,34 +9,43 @@
     @Styles.Render("~/Content/css")
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                            @if (Session["UserID"] != null)
+                            {
+                                <b>@Session["UserName"]</b> @Html.ActionLink("Çıkış Yap", "Logout", "Login", null, new { @class = "p-2 badge badge-danger" })
+                            }
+                    </li>
+                </ul>
+            </div>
             <a class="navbar-brand" href="/">Stok Takip Uygulaması</a>
-            @if (Session["UserID"] != null)
-            {
-                <span><b>@Session["UserName"]</b> @Html.ActionLink("Çıkış Yap", "Logout", "Login", null, new { @class = "p-2 badge badge-danger" })</span>
-            }
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse w-100  @(Session["UserID"]==null ? "order-3":null)" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     @if (Session["UserID"] != null)
                     {
-                        <li class="nav-item active">
+                        <li class="nav-item @(this.ViewContext.RouteData.Values["controller"].ToString().Contains("Product") ? "active" : null)">
                             @Html.ActionLink("Ürünler", "Index", "Product", null, new { @class = "nav-link" })
                         </li>
                         <li class="nav-item">
-                            @Html.ActionLink("Satış Yap", "buy", "Commerce", null, new { @class = "nav-link" })
+                            @Html.ActionLink("Personeller", "Index", "Employe", null, new { @class = "nav-link" })
                         </li>
                         <li class="nav-item">
-                            @Html.ActionLink("Kullanıcılar", "Index", "User", null, new { @class = "nav-link" })
+                            @Html.ActionLink("Stok Yönetimi", "Index", "Stock", null, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Satış Yap", "buy", "Commerce", null, new { @class = "nav-link" })
                         </li>
                     }
                     @if (Session["UserID"] == null)
                     {
                         <li class="nav-item">
-                            @Html.ActionLink("Sisteme Giriş", "Index", "Login", null, new { @class = "nav-link" })
+                            @Html.ActionLink("Giriş Yap", "Index", "Login", null, new { @class = "btn btn-warning" })
                         </li>
                     }
                 </ul>
