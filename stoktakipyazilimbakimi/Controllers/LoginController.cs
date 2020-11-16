@@ -17,7 +17,7 @@ namespace stoktakipyazilimbakimi.Controllers
         [HttpPost]
         public RedirectToRouteResult Attempt(Personel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValidField("tcno") && ModelState.IsValidField("sifre"))
             {
                 using (StokContext db = new StokContext())
                 {

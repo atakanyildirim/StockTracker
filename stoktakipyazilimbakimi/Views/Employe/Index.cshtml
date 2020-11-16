@@ -1,0 +1,83 @@
+﻿@model IEnumerable<stoktakipyazilimbakimi.Models.Personel>
+
+@{
+    ViewBag.Title = "Personeller";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mt-3">
+        <li class="breadcrumb-item"><a href="/" class="text-dark">Anasayfa</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Personeller</li>
+    </ol>
+</nav>
+
+@if (TempData["message"] != null)
+{
+    <div class="form-group">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Tebrikler!</strong> @TempData["message"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+}
+
+<p class="display-4">
+    Personeller <a href="@Url.Action("Add","Employe")" class="btn btn-success badge">+</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tcno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eposta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sifre)
+        </th>
+        <th>
+            İşlem
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tcno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eposta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sifre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Employe", new { tcno = item.tcno }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Delete", "Delete", "Employe", new { tcno = item.tcno }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

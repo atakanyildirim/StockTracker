@@ -11,6 +11,7 @@ namespace stoktakipyazilimbakimi.Models
     public class Urunler
     {
         [Key]
+        [Display(Name = "Ürün İd")]
         public int UrunID { get; set; }
 
         [Required(ErrorMessage = "Lütfen ürün adı giriniz")]

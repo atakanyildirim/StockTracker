@@ -16,11 +16,9 @@ namespace stoktakipyazilimbakimi.Controllers
         {
             int pageSize = 8;
             int pageNumber = (page ?? 1);
-            using (StokContext stok = new StokContext())
-            {
-                var urunler = stok.Urunler.OrderByDescending(m => m.UrunID).ToPagedList(pageNumber, pageSize);
-                return View(urunler);
-            }
+            StokContext stok = new StokContext();
+            return View(stok.Urunler.OrderByDescending(m => m.UrunID).ToPagedList(pageNumber, pageSize));
+
         }
 
         public ActionResult Edit(int id)

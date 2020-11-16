@@ -1,56 +1,56 @@
 ﻿@model stoktakipyazilimbakimi.Models.Urunler
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Ürün Düzenle";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb mt-3">
         <li class="breadcrumb-item"><a href="/" class="text-dark">Anasayfa</a></li>
-        <li class="breadcrumb-item"><a href="@Url.Action("Index")" class="text-dark">Ürünler</a></li>
-        <li class="breadcrumb-item active" aria-current="page">@Html.DisplayFor(model => model.UrunAdi)</li>
+        <li class="breadcrumb-item"><a href="@Url.Action(" Index")" class="text-dark">Ürünler</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Html.DisplayNameFor(model => model.UrunAdi)</li>
     </ol>
 </nav>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <p class="display-4">
-            Ürün Düzenle     @Html.ActionLink("Listeye geri dön", "Index", null, new { @class = "btn btn-info btn-sm" })
-        </p>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.UrunID)
+<div class="form-horizontal">
+    <p class="display-4">
+        Ürün Düzenle     @Html.ActionLink("Listeye geri dön", "Index", null, new { @class = "btn btn-info btn-sm" })
+    </p>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.UrunID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.UrunAdi, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UrunAdi, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UrunAdi, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UrunFiyat, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UrunFiyat, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UrunFiyat, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UrunBirimi, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UrunBirimi, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UrunBirimi, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Güncelle" class="btn btn-success" />
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.UrunAdi, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UrunAdi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UrunAdi, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UrunFiyat, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UrunFiyat, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UrunFiyat, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UrunBirimi, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UrunBirimi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UrunBirimi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Güncelle" class="btn btn-success" />
+        </div>
+    </div>
+</div>
 }

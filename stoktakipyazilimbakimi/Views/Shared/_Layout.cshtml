@@ -14,10 +14,10 @@
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                            @if (Session["UserID"] != null)
-                            {
-                                <b>@Session["UserName"]</b> @Html.ActionLink("Çıkış Yap", "Logout", "Login", null, new { @class = "p-2 badge badge-danger" })
-                            }
+                        @if (Session["UserID"] != null)
+                        {
+                            <b>@Session["UserName"]</b> @Html.ActionLink("Çıkış Yap", "Logout", "Login", null, new { @class = "p-2 badge badge-danger" })
+                        }
                     </li>
                 </ul>
             </div>
@@ -25,20 +25,20 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse w-100  @(Session["UserID"]==null ? "order-3":null)" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse w-100 @(Session["UserID"]==null ? "order-3":null)" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     @if (Session["UserID"] != null)
                     {
                         <li class="nav-item @(this.ViewContext.RouteData.Values["controller"].ToString().Contains("Product") ? "active" : null)">
                             @Html.ActionLink("Ürünler", "Index", "Product", null, new { @class = "nav-link" })
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @(this.ViewContext.RouteData.Values["controller"].ToString().Contains("Employe") ? "active" : null)">
                             @Html.ActionLink("Personeller", "Index", "Employe", null, new { @class = "nav-link" })
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @(this.ViewContext.RouteData.Values["controller"].ToString().Contains("Stock") ? "active" : null)">
                             @Html.ActionLink("Stok Yönetimi", "Index", "Stock", null, new { @class = "nav-link" })
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item @(this.ViewContext.RouteData.Values["controller"].ToString().Contains("Commerce") ? "active" : null)">
                             @Html.ActionLink("Satış Yap", "buy", "Commerce", null, new { @class = "nav-link" })
                         </li>
                     }
