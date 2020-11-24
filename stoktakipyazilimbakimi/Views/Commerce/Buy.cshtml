@@ -13,8 +13,8 @@
 @if (TempData["message"] != null)
 {
     <div class="form-group">
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Tebrikler!</strong> @TempData["message"]
+        <div class="alert @TempData["color"] alert-dismissible fade show" role="alert">
+            <strong>@(TempData["color"].Equals("alert alert-danger") ? "Dikkat!!" : "Tebrikler!")</strong> @TempData["message"]
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

@@ -19,10 +19,20 @@ namespace stoktakipyazilimbakimi.Controllers
             using (StokContext stokcontext = new StokContext())
             {
                 var product = stokcontext.Stok.Where(stok => stok.ProductID == productID).Single();
-                product.quantity -= quantity;
-                stokcontext.SaveChanges();
+                if (quantity <= product.quantity)
+                {
+                    product.quantity -= quantity;
+                    stokcontext.SaveChanges();
+                    TempData["color"] = "alert alert-success";
+                    TempData["message"] = "Stoktan " + quantity.ToString() + " miktar düşürüldü";
+                }
+                else
+                {
+                    TempData["color"] = "alert alert-danger";
+                    TempData["message"] = "Satış için stok yetersiz!!!!!";
+                }
+                    
             }
-            TempData["message"] = "Stoktan " + quantity.ToString() + " miktar düşürüldü";
             return View();
         }
     }
