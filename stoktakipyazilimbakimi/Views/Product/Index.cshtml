@@ -35,7 +35,6 @@
             <th scope="col"> @Html.DisplayNameFor(x => x.FirstOrDefault().UrunID)</th>
             <th scope="col">@Html.DisplayNameFor(x => x.FirstOrDefault().UrunAdi)</th>
             <th scope="col">@Html.DisplayNameFor(x => x.FirstOrDefault().UrunFiyat)</th>
-            <th scope="col">Stok Miktar</th>
             <th scope="col">İşlem</th>
         </tr>
     </thead>
@@ -46,7 +45,6 @@
                 <td>@Html.DisplayFor(modelItem => item.UrunID)</td>
                 <td>@Html.DisplayFor(modelItem => item.UrunAdi)</td>
                 <td>@Html.DisplayFor(modelItem => item.UrunFiyat)</td>
-                <td>45</td>
                 <td>@Html.ActionLink("Edit", "Edit", "Product", new { id = item.UrunID }, new { @class = "btn btn-warning" }) @Html.ActionLink("Delete", "Delete", "Product", new { id = item.UrunID }, new { @class = "btn btn-danger" })</td>
             </tr>
         }

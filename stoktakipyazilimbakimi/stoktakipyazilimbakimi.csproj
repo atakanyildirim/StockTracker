@@ -124,11 +124,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CommerceController.cs" />
     <Compile Include="Controllers\EmployeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\StockController.cs" />
     <Compile Include="filters\UserAuthenticationFilter.cs" />
+    <Compile Include="Models\StokJoinModel.cs" />
+    <Compile Include="Models\Stok.cs" />
     <Compile Include="Models\Urunler.cs" />
     <Compile Include="Models\StokContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -173,6 +177,9 @@
     <Content Include="Views\Employe\Add.cshtml" />
     <Content Include="Views\Employe\Edit.cshtml" />
     <Content Include="Views\Employe\Index.cshtml" />
+    <Content Include="Views\Commerce\Buy.cshtml" />
+    <Content Include="Views\Stock\Edit.cshtml" />
+    <Content Include="Views\Stock\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

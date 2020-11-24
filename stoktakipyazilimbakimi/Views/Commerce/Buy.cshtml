@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Satış Yap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mt-3">
+        <li class="breadcrumb-item"><a href="/" class="text-dark">Anasayfa</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Satış Yap</li>
+    </ol>
+</nav>
+
+@if (TempData["message"] != null)
+{
+    <div class="form-group">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Tebrikler!</strong> @TempData["message"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+}
+
+
+@using (Html.BeginForm("Buy", "Commerce", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal p-2">
+        <div class="form-group">
+            <label>Ürün İd</label>
+            <div class="col-md-10">
+                <input type="number" class="form-control" name="productID" value="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Miktarı</label>
+            <div class="col-md-10">
+                <input type="number" class="form-control" name="quantity" value="" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-success">Satış Yap</button>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="jumbotron jumbotron-fluid border">
+    <div class="container">
+        <h1 class="display-4">Satış Yap</h1>
+        <p class="lead">Ürünün stoktan düştüğünü görüp test etmek için oluşturulmuştur.</p>
+    </div>
+</div>

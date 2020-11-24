@@ -7,6 +7,7 @@ namespace stoktakipyazilimbakimi.Controllers
     {
         public DbSet<Personel> Personel { get; set; }
         public DbSet<Urunler> Urunler { get; set; }
+        public DbSet<Stok> Stok { get; set; }
         public StokContext() : base("name=stok")
         {
         }

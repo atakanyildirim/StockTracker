@@ -52,10 +52,16 @@ namespace stoktakipyazilimbakimi.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Add(Urunler urun)
         {
-            using (StokContext stok = new StokContext())
+            using (StokContext stokContext = new StokContext())
             {
-                stok.Urunler.Add(urun);
-                stok.SaveChanges();
+                stokContext.Urunler.Add(urun);
+                stokContext.SaveChanges();
+                // Stok Tanımla
+                Stok newstok = new Stok();
+                newstok.ProductID = urun.UrunID;
+                newstok.UpdatedAt = DateTime.Now;
+                stokContext.Stok.Add(newstok);
+                stokContext.SaveChanges();
             }
             TempData["message"] = "Yeni ürün eklendi";
             return RedirectToAction("Index");
