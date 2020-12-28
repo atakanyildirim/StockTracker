@@ -29,6 +29,8 @@ namespace stoktakipyazilimbakimi.Models
         [Display(Name = "E-posta")]
         public string eposta { get; set; }
 
+        public string token { get; set; }
+
         [Required(ErrorMessage = "Lütfen şifrenizi giriniz.")]
         [DataType(DataType.Password)]
         [Display(Name = "Şifre")]
