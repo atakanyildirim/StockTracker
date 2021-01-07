@@ -50,7 +50,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)
             </td>
-            <td>
+            <td class="@(item.ProductQuantity==0 ? "bg-warning text-white":"")">
                 @Html.DisplayFor(modelItem => item.ProductQuantity)
             </td>
             <td>

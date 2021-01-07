@@ -132,7 +132,6 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ResetController.cs" />
     <Compile Include="Controllers\StockController.cs" />
-    <Compile Include="Controllers\SweetController.cs" />
     <Compile Include="filters\UserAuthenticationFilter.cs" />
     <Compile Include="Models\StokJoinModel.cs" />
     <Compile Include="Models\Stok.cs" />
@@ -186,7 +185,6 @@
     <Content Include="Views\Commerce\Buy.cshtml" />
     <Content Include="Views\Stock\Edit.cshtml" />
     <Content Include="Views\Stock\Index.cshtml" />
-    <Content Include="Views\Sweet\Alert.cshtml" />
     <Content Include="Views\Reset\Password.cshtml" />
   </ItemGroup>
   <ItemGroup>
