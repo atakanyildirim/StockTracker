@@ -45,9 +45,6 @@
             @Html.DisplayNameFor(model => model.eposta)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.sifre)
-        </th>
-        <th>
             İşlem
         </th>
     </tr>
@@ -69,9 +66,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.eposta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.sifre)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", "Employe", new { tcno = item.tcno }, new { @class = "btn btn-warning" })
