@@ -75,7 +75,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", "Employe", new { tcno = item.tcno }, new { @class = "btn btn-warning" })
-                @Html.ActionLink("Delete", "Delete", "Employe", new { tcno = item.tcno }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Delete", "Delete", "Employe", new { tcno = item.tcno }, new { @class = "btn btn-danger", @id = "delete", onclick = "return confirm('Silmek istediğinize emin misiniz?');" })
             </td>
         </tr>
     }
