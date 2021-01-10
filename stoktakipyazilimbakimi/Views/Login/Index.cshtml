@@ -34,6 +34,12 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-lg btn-success btn-block text-uppercase">Giriş Yap</button>
             </div>
+            if(Session["attemptCount"]!=null && Int32.Parse(Session["attemptCount"].ToString()) > 2)
+            {
+            <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6Lc-tycaAAAAAJVFbcV3jvag2vxSxLu_zk8HTlPZ"></div>
+            </div>
+            }
             if (TempData["message"] != null)
             {
                 <div class="form-group">
@@ -67,9 +73,10 @@
                         <button type="submit" class="btn btn-primary">Yeni Şifre Gönder</button>
                     </div>
                 }
-                </div>
+            </div>
         </div>
     </div>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
