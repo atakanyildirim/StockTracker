@@ -25,7 +25,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.tcno, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.tcno, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.tcno, new { htmlAttributes = new { @class = "form-control", @id = "idNumber" } })
                 @Html.ValidationMessageFor(model => model.tcno, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -49,7 +49,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.telefon, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.telefon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.telefon, new { htmlAttributes = new { @class = "form-control", @id = "phone" } })
                 @Html.ValidationMessageFor(model => model.telefon, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -79,5 +79,12 @@
 }
 @section Scripts
 {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script>
+        $(document).ready(function ($) {
+            $("#phone").mask("(999) 999-9999");
+            $("#idNumber").mask("999999999");
+        });
+    </script>
     @Scripts.Render("~/bundles/jqueryval")
 }
