@@ -38,6 +38,7 @@ namespace stoktakipyazilimbakimi.Controllers
                     {
                         newToken = RandomString(17);
                         personel.token = newToken;
+                        personel.tokenExpiredTime = DateTime.Now.AddMinutes(5);
                         stok.SaveChanges();
                         TempData["message"] = "Şifre değiştirme linkini mail adresinize gönderdik.";
                         string resetPasswordUrl = "http://localhost:57115/Reset/Password?token=" + newToken;

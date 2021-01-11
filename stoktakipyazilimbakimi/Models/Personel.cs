@@ -31,6 +31,8 @@ namespace stoktakipyazilimbakimi.Models
 
         public string token { get; set; }
 
+        public DateTime tokenExpiredTime { get; set; }
+
         [Required(ErrorMessage = "Lütfen şifrenizi giriniz.")]
         [DataType(DataType.Password)]
         [Display(Name = "Şifre")]

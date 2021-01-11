@@ -21,7 +21,7 @@ namespace stoktakipyazilimbakimi.Controllers
             using(StokContext stokContext = new StokContext())
             {
                 var personel = stokContext.Personel.SingleOrDefault(perso => perso.token == token);
-                if(personel!=null)
+                if(personel!=null && DateTime.Now < personel.tokenExpiredTime)
                 {
                     personel.sifre = password;
                     personel.token = null;

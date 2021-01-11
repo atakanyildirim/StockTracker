@@ -50,8 +50,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)
             </td>
-            <td class="@(item.ProductQuantity==0 ? "bg-warning text-white":"")">
-                @Html.DisplayFor(modelItem => item.ProductQuantity)
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductQuantity) @if (item.ProductQuantity == 0) {<span class="badge badge-danger">Stok Bitti</span>}
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UpdatedAt)
